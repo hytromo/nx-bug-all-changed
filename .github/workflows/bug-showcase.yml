@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v3
+
       - name: Show affected projects
         run: |
           npm ci
