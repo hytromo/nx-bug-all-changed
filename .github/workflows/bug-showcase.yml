@@ -27,4 +27,4 @@ jobs:
         run: |
           npm ci
           echo "Changed projects according to nx"
-          npx nx show projects --affected --base=main --head=HEAD
+          npx nx show projects --affected
