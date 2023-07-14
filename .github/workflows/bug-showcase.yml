@@ -20,10 +20,11 @@ jobs:
         with:
           node-version: 18
 
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v3
+
       - name: Show affected projects
         run: |
           npm ci
-          echo "Changed files according to git"
-          git diff --name-only main 
           echo "Changed projects according to nx"
           npx nx show projects --affected --base=main --head=HEAD
