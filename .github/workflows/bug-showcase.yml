@@ -1,0 +1,25 @@
+name: Bug-showcase
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  showcase:
+    runs-on: ubuntu-22.04
+    name: Showcase
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # fetch all commits, needed so that nx affected works correctly
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Clone submodule
+        run: |
+          npm ci
+          npx nx show projects --affected --base=main --head=HEAD
