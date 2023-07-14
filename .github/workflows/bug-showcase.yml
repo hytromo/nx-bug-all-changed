@@ -19,7 +19,10 @@ jobs:
         with:
           node-version: 18
 
-      - name: Clone submodule
+      - name: Show affected projects
         run: |
           npm ci
+          echo "Changed files according to git"
+          git diff --name-only main 
+          echo "Changed projects according to nx"
           npx nx show projects --affected --base=main --head=HEAD
