@@ -1,0 +1,19 @@
+{
+  "name": "pkgA",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "packages/pkgA",
+  "targets": {
+    "init": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "echo hi",
+            "forwardAllArgs": false
+          }
+        ]
+      }
+    },
+  }
+}
